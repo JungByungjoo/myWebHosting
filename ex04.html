@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <i>무엇을 먹을지 고민하지 말라 - 마태복음 -</i>
+    <button id="choice_lunch">점심 고르기</button>
+    <hr>
+    <img id = "lunch">
+
+    <script>
+        let choice_lunch = document.querySelector('#choice_lunch')
+
+        let 스테이크 = "https://ww.namu.la/s/b117ca4039dbbbe2f871993c0b6f96f3d7ae224da9a1848bb5af91b6d9ba19eac89ddc1db42cc885a479ec3bea7df41adfac540cf5cd1ab739f8324f9634f87c76df13255c0c9c5034d10ac2a7a04331416cb88b716e4ed43c5a93fab2462356c73d4da11bbe1067f69b0195ef2a3164"
+        let 돈까스 = "https://t1.daumcdn.net/cfile/tistory/998976505AA8C06921"
+        let 햄버거 = "http://www.ntoday.co.kr/news/photo/202110/80781_55273_3022.jpg"
+        let 떡볶이 = "https://cdn.kihoilbo.co.kr/news/photo/202008/880134_302005_3430.png"
+        let 초밥 = "https://ldb-phinf.pstatic.net/20210414_69/1618385903102cO3A7_JPEG/%BD%BA%BD%C3%2C%BB%E7%BD%C3%B9%CC%B8%F0%B8%AE%BE%C6%BF%CD%BC%BC_%28%C3%CA%B9%E410%2C%BB%E7%BD%C3%B9%CC20%29.jpg?type=f804_408_60_sharpen"
+
+        let lunchList = [스테이크,돈까스,햄버거]
+        lunchList[3] = 떡볶이
+        lunchList[4] = 초밥
+
+        choice_lunch.onclick = () => {
+            let lunch = document.querySelector("#lunch")
+            lunch.src = lunchList[ Math.floor(Math.random()*5 ) ]
+        }
+    </script>
+</body>
+</html>

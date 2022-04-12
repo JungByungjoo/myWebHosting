@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id = "result"></h1>
+    <script>
+        let input = ""
+
+        //입력받는창
+        let floor = prompt("몇층?")
+
+        for(let i = 1; i<=floor; i++) //for문 작성시에도 int등의 타입이 없으므로 let타입 변수로 대체됨
+        {
+            for(let j = 0; j<i; j++)
+                input += "*"
+
+            input += "\n"
+        }
+        console.log(input) // 콘솔창에 글자 적어줌
+        let h1tag = document.querySelector('#result') // document = DOM 객체, 웹페이지 안에서 존재하는 모는 컴포넌트들(태그 등)을 제어할 수 있는 객체 id가 result인 태그를 선택해서 h1tag태그 변수에 대입
+        h1tag.innerText = input // 태그 글자를 input값으로 바꿈
+
+        h1tag.style.color = "blue"
+
+        let colorList = ["red","green","blue","cyan","springgreen"]
+        h1tag.style.color = colorList[Math.floor(Math.random()*5)]
+        //Math.floor(Math.random()*5)
+        //Math.floor -> 버림
+        //Math.random() -> 0이상 1미만의 실수를 랜덤하게 반환하는 값
+        //Math.random()*5 -> 최소 0 최대 4.999999999가 나옴.
+        
+        //동적으로 코드상에서 태그 추가
+        let myp = document.createElement('p') //p태그를 코드상에서 만들기
+        myp.id = "박재형"
+        myp.innerText = "박재형은 누구?"
+        myp.style.color = "gold"
+        myp.style.background = "black"
+        document.body.appendChild(myp) //body에 추가해줘야함. 이거 안하면 p태그 내용 안보임
+    </script>
+</body>
+</html>

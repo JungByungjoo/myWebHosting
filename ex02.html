@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>층 수 입력</span>
+    <input type="text" id="floor">
+    <!--ctal + / html, js에서 주석 -->
+    <!-- button#output-->
+    <button id="output">피라미드 출력</button>
+    <script>
+        //js에서는 문자개념(char)이 없다
+        //무조건 문자열
+        //문장을 적을 때 '안녕' 이나, "안녕" 둘다 가능
+        //document.querySelector는 style의 선택자처럼 태그 선택
+        let output = document.getElementById("output") //id만 선택하는 전용 기능
+        //addEventListener 혹은 onclick 이용해서 output 태그를 눌렀을 때 함수가 실행되게 함
+        output.onclick = function() {
+            let floor = document.querySelector('#floor').value
+            floor = Number(floor) //숫자로 변환
+            //alert(++floor) //alert : 경고창 띄우기, ++값하나 증가시키고 나서 출력
+            let triangle = ""
+            for(let i = 0; i<=floor; i++)
+            {
+                for(let j = floor; j>i; j--)
+                    //triangle += "&nbsp;"
+                    triangle += "\u00a0" //innerText에서 공백 삽입
+                for(let j = 0; j<i; j++)
+                    triangle += "*"
+                
+                //triangle+="\n" //innerText에서의 개행 삽입
+                triangle +="\n"
+                //triangle +="<br>"
+            }
+            console.log(triangle)
+
+            let result = document.createElement('h1')
+            result.id = "h1result"
+            result.innerText = triangle
+            //result.innerHTML = triangle
+            document.body.appendChild(result)
+        }
+    </script>
+</body>
+</html>
